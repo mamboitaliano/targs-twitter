@@ -1,5 +1,5 @@
-get'/' do
-  redirect to '/users/register'
+get '/' do
+  redirect '/users/register'
 end
 
 ##INDEX
@@ -14,8 +14,13 @@ end
 
 ##CREATE
 post '/users' do
-  User.create(params[:user])
-  redirect '/users'
+  new_user = User.new(
+    :username => params[:username],
+    :email => params[:email]
+    )
+  new_user.password = params[:password]
+  new_user.save
+  redirect "/users/#{new_user.id}"
 end
 
 ##SHOW
