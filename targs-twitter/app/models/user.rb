@@ -1,5 +1,7 @@
-class User < ActiveRecord::Base
+require 'bcrypt'
 
+class User < ActiveRecord::Base
+	include BCrypt	
   has_many :follower_relationships, foreign_key: :follower_id, class_name: "Relationship"
   has_many :followers, through: :follower_relationships, source: :follower
 
@@ -9,4 +11,13 @@ class User < ActiveRecord::Base
 
   has_many :scoobs
 
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
 end
