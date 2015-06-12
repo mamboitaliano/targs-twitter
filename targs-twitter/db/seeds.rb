@@ -1,5 +1,5 @@
-user1= User.create(username: "hello", password: "yea", email: "k")
+user1= User.create(username: "hello", password_hash: "yea", email: "k")
 
-user2= User.create(username: "georgie", password: "hihi", email: "k")
+user2= User.create(username: "georgie", password_hash: "hihi", email: "k")
 
-user3= User.create(username: "cathy", password: "georgie", email: "k@gmail.com")
+user3= User.create(username: "cathy", password_hash: "georgie", email: "k@gmail.com")
