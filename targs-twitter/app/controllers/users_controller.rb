@@ -1,10 +1,9 @@
-get'/' do
-  redirect to '/users/register'
+get '/' do
+  redirect '/users/register'
 end
 
 ##INDEX
 get '/users' do
-  @users = User.all
   erb :users
 end
 
@@ -15,12 +14,18 @@ end
 
 ##CREATE
 post '/users' do
-  User.create(params[:user])
-  redirect '/users'
+  @user = User.new(
+    :username => params[:username],
+    :email => params[:email]
+    )
+  @user.password = params[:password]
+  @user.save
+  redirect "/users/#{@user.id}"
 end
 
 ##SHOW
 get '/users/:id' do
+  @user = User.find(params[:id])
   erb :profile
 end
 
