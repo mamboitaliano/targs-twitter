@@ -1,11 +1,15 @@
+get'/' do
+  redirect to '/users/register'
+end
+
 ##INDEX
 get '/users' do
-  erb: users
+  erb :users
 end
 
 ##NEW
 get '/users/register' do
-  erb: registration
+  erb :registration_form
 end
 
 ##CREATE
@@ -16,12 +20,12 @@ end
 
 ##SHOW
 get '/users/:id' do
-  erb: profile
+  erb :profile
 end
 
 ##EDIT
 get '/users/:id/edit' do
-  erb: edit_profile
+  erb :edit_profile
 end
 
 ##UPDATE
