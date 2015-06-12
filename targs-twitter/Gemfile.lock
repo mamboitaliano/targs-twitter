@@ -85,10 +85,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.2.0)
   activesupport (~> 4.2.0)
-<<<<<<< HEAD
-=======
   bcrypt
->>>>>>> 120dc30d571f1acd0fcf3fee90aeda90d432e40a
   capybara
   factory_girl
   faker
