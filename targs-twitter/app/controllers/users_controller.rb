@@ -14,17 +14,18 @@ end
 
 ##CREATE
 post '/users' do
-  new_user = User.new(
+  @user = User.new(
     :username => params[:username],
     :email => params[:email]
     )
-  new_user.password = params[:password]
-  new_user.save
-  redirect "/users/#{new_user.id}"
+  @user.password = params[:password]
+  @user.save
+  redirect "/users/#{@user.id}"
 end
 
 ##SHOW
 get '/users/:id' do
+  @user = User.find(params[:id])
   erb :profile
 end
 
