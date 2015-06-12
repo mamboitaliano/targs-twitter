@@ -1,5 +1,6 @@
 ##INDEX
 get '/scoobs' do
+  @scoobs = Scoob.all
   erb :scoobs
 end
 
